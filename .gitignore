@@ -28,3 +28,7 @@ dist/
 
 # Miscellaneous
 .DS_Store
+
+# Vitepress
+.vitepress/dist/
+.vitepress/cache/
