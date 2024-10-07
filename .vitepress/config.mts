@@ -17,7 +17,7 @@ export default defineConfig({
   ],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    logo: '/assets/images/np_labs_logo.png',
+    logo: '/images/np_labs_logo.png',
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Guides', link: '/guides/' },
