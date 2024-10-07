@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import { generateSidebar } from 'vitepress-sidebar';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -22,22 +23,23 @@ export default defineConfig({
       { text: 'Guides', link: '/guides/' },
       { text: 'Reference', link: '/reference/' },
     ],
+    
 
-    sidebar: [
-      {
-        text: 'Guides',
-        items: [
-          { text: 'Tailscale Exit Node in GCP', link: '/guides/tailscale-exit-node-in-gcp' }
-        ]
-      },
-      {
-        text: 'Examples',
-        items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
-        ]
-      }
-    ],
+    // sidebar: [
+    //   {
+    //     text: 'Guides',
+    //     items: [
+    //       { text: 'Tailscale Exit Node in GCP', link: '/guides/tailscale-exit-node-in-gcp' }
+    //     ]
+    //   },
+    //   {
+    //     text: 'Examples',
+    //     items: [
+    //       { text: 'Markdown Examples', link: '/markdown-examples' },
+    //       { text: 'Runtime API Examples', link: '/api-examples' }
+    //     ]
+    //   }
+    // ],
 
     public: {
       site: {
@@ -46,7 +48,36 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/newpush-labs/newpush-labs' }
-    ]
+      { icon: 'github', link: 'https://github.com/newpush-labs/newpush-labs' },
+      { icon: 'linkedin', link: 'https://www.linkedin.com/company/newpush/' },
+    ],
+
+    footer: {
+      message: 'Licensed under the MIT License. Free for all use cases. For enterprise or academic support, please reach out to us.',
+      copyright: 'Copyright © 2024 - newpush labs - All rights reserved.'
+    },
+
+    sidebar: generateSidebar([
+      {
+        documentRootPath: '.',
+        scanStartPath: 'guides',
+        basePath: '/guides/',
+        resolvePath: '/guides/',
+        useTitleFromFileHeading: true,
+        underscoreToSpace: true,
+        capitalizeFirst: true,
+        useFolderTitleFromIndexFile: true,
+        excludeFiles: ['do-not-include.md']
+      },
+      {
+        documentRootPath: '.',
+        scanStartPath: 'reference',
+        resolvePath: '/reference/',
+        // useTitleFromFrontmatter: true,
+        useFolderTitleFromIndexFile: true,
+
+      }
+    ]),
+
   }
 })
