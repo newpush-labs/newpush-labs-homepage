@@ -4,6 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "NewPush Labs",
   description: "Experience the trending tech stacks with ease",
+  base: '/newpush-labs-homepage/', 
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
