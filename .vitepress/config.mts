@@ -1,10 +1,12 @@
 import { defineConfig } from 'vitepress'
+import { resolve } from 'path'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "NewPush Labs",
   description: "Experience the trending tech stacks with ease",
-  base: '/newpush-labs-homepage/', 
+  base: '/newpush-labs-homepage/',
+
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
@@ -31,8 +33,10 @@ export default defineConfig({
       }
     ],
 
+
+
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/newpush-labs' }
     ]
   }
 })
