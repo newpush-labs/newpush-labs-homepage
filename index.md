@@ -3,12 +3,12 @@
 layout: home
 
 hero:
-  name: "NewPush Labs"
-  text: "Experience the trending tech stacks with ease"
+  name: "newpush® labs"
+  text: "Experience, test, and learn the trending tech stacks with ease"
   tagline: Discover the future of technology
   image:
     src: /images/hero.jpeg
-    alt: NewPush Labs
+    alt: newpush labs
   actions:
     - theme: brand
       text: Get Started

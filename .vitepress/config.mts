@@ -8,13 +8,19 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Guide', link: '/guide/' },
+      { text: 'Guides', link: '/guides/' },
       { text: 'Reference', link: '/reference/' },
       // { text: 'Learn More', link: '/learn-more' },
       // { text: 'Get Started', link: '/get-started' }
     ],
 
     sidebar: [
+      {
+        text: 'Guides',
+        items: [
+          { text: 'Tailscale Exit Node in GCP', link: '/guides/tailscale-exit-node-in-gcp' }
+        ]
+      },
       {
         text: 'Examples',
         items: [
