@@ -5,7 +5,7 @@ import { generateSidebar } from 'vitepress-sidebar';
 export default defineConfig({
   title: "NewPush Labs",
   description: "Experience the trending tech stacks with ease",
-  base: '/newpush-labs-homepage/',
+  base: '/',
   head: [
     ['link', { rel: "icon", type: "image/png", sizes: "32x32", href: "/images/favicons/favicon-32x32.png"}],
     ['link', { rel: "icon", type: "image/png", sizes: "16x16", href: "/images/favicons/favicon-16x16.png"}],
@@ -43,7 +43,7 @@ export default defineConfig({
 
     public: {
       site: {
-        base: '/newpush-labs-homepage/',
+        base: '/',
       }
     },
 

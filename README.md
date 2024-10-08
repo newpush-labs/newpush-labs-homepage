@@ -1,6 +1,6 @@
 # NewPush Labs Documentation
 
-This repository contains the documentation for NewPush Labs, built using VitePress. The static site generated from this documentation can be found at the following location: [NewPush Labs Homepage](https://newpush-labs.github.io/newpush-labs-homepage/).
+This repository contains the documentation for NewPush Labs, built using VitePress. The static site generated from this documentation can be found at the following location: [NewPush Labs Homepage](https://labs.newpush.com/).
 
 ## Overview
 
@@ -9,7 +9,7 @@ utorials for common lab tasks and experiments.
 
 ## Getting Started
 
-To get started with NewPush Labs, visit our [Get Started](https://newpush-labs.github.io/newpush-labs-homepage/get-started) page.
+To get started with NewPush Labs, visit our [Get Started](https://labs.newpush.com/get-started) page.
 
 ## Contributing
 
