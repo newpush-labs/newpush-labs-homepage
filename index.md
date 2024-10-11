@@ -23,56 +23,56 @@ features:
     details: Out of the box SSO integration with Casdoor for a unified login experience.
     icon: 
       src: /images/apps/casbin.svg
-    link: /learn-more
+    link: /reference/components/casdoor.html
     linkText: Your own identity provider
 
   - title: Ingress Controller
     details: Traefik on steroids, with SSL certificate provisioning and authentication middleware with a bunch of goodies.
     icon:
       src: /images/apps/traefik_proxy.svg
-    link: /learn-more
+    link: /reference/components/ingress-controller.html
     linkText: View traefik configuration
 
   - title: Monitoring
     details: Monitor and visualize your lab environment's performance and metrics with built-in Grafana dashboards and Loki for log aggregation and analysis.
     icon:
       src: /images/apps/grafana.svg
-    link: /learn-more
+    link: /reference/components/monitoring.html
     linkText: Understand your metrics
 
   - title: Application Templates
     details: Utilize pre-configured Portainer templates to quickly deploy and manage containerized applications.
     icon:
       src: /images/apps/portainer.svg
-    link: /learn-more
+    link: /reference/components/application-templates.html
     linkText: Browse the applications
 
   - title: Slick web UI
     details: Easily launch and manage your lab environment through an intuitive web interface even on your mobile.
     icon:
       src: /images/apps/mafl.svg
-    link: /learn-more
+    link: /reference/components/web-ui.html
     linkText: Launch your apps instantly
 
   - title: Web-Based Terminal
     details: Access your lab environment securely via a web-based terminal for SSH.
     icon:
       src: /images/apps/xtermjs.png
-    link: /learn-more
+    link: /reference/components/web-terminal.html
     linkText: Access servers sshwiftly 
     
   - title: Modular and Extensible
     details: Customize and extend the lab environment to suit your specific needs.
     icon:
       src: /images/apps/dockge.svg
-    link: /learn-more
+    link: /reference/components/modular-architecture.html
     linkText: Extend your lab with stacks
 
   - title: Under the Hood
     details: Define and manage your lab environment using Ansible and ensuring consistency, reproducibility, and scalability.
     icon:
       src: /images/apps/ansible.svg
-    link: /learn-more
+    link: /reference/components/infrastructure-as-code.html
     linkText: Learn about provisioning
 ---
 

@@ -23,24 +23,6 @@ export default defineConfig({
       { text: 'Guides', link: '/guides/' },
       { text: 'Reference', link: '/reference/' },
     ],
-    
-
-    // sidebar: [
-    //   {
-    //     text: 'Guides',
-    //     items: [
-    //       { text: 'Tailscale Exit Node in GCP', link: '/guides/tailscale-exit-node-in-gcp' }
-    //     ]
-    //   },
-    //   {
-    //     text: 'Examples',
-    //     items: [
-    //       { text: 'Markdown Examples', link: '/markdown-examples' },
-    //       { text: 'Runtime API Examples', link: '/api-examples' }
-    //     ]
-    //   }
-    // ],
-
     public: {
       site: {
         base: '/',
@@ -56,7 +38,10 @@ export default defineConfig({
       message: 'Licensed under the MIT License. Free for all use cases. For enterprise or academic support, please reach out to us.',
       copyright: 'Copyright © 2024 - newpush labs - All rights reserved.'
     },
-
+    editLink: {
+      pattern: 'https://github.com/newpush-labs/newpush-labs-homepage/edit/main/:path',
+      text: 'Edit this page on GitHub'
+    }, 
     sidebar: generateSidebar([
       {
         documentRootPath: '.',
@@ -67,7 +52,8 @@ export default defineConfig({
         underscoreToSpace: true,
         capitalizeFirst: true,
         useFolderTitleFromIndexFile: true,
-        excludeFiles: ['do-not-include.md']
+        excludeFiles: ['do-not-include.md'],
+        sortMenusByFrontmatterOrder: true
       },
       {
         documentRootPath: '.',
@@ -75,6 +61,10 @@ export default defineConfig({
         resolvePath: '/reference/',
         // useTitleFromFrontmatter: true,
         useFolderTitleFromIndexFile: true,
+        useTitleFromFileHeading: true,
+        underscoreToSpace: true,
+        capitalizeFirst: true,
+        sortMenusByFrontmatterOrder: true
 
       }
     ]),

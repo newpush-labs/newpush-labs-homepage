@@ -1,3 +1,6 @@
+---
+order: 1
+---
 # Tailscale exit node in Google Cloud
 
 ## Steps to Set Up Tailscale Exit Node in Google Cloud
