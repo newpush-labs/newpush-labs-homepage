@@ -1,22 +1,26 @@
 ---
-order: 1
+title: Ingress Controller
+order: 2
 ---
 
 # Ingress Controller with Traefik
 
-NewPush Labs employs Traefik as its ingress controller, offering advanced routing capabilities, SSL certificate provisioning, and authentication middleware.
+NewPush Labs employs Traefik as its ingress controller, offering advanced routing capabilities, SSL certificate provisioning, and authentication middleware. 
 
-![alt text](traefik-dashboard.png)
+![alt text](images/traefik-dashboard.png)
 
 ## Features
+
+The lab comes with a preconfigured Traefik setup that is designed to work out-of-the-box with minimal configuration. This setup includes default routing rules, SSL certificate management, and integration with NewPush Labs' authentication services. The preconfigured Traefik instance ensures that your services are securely exposed and easily accessible.
 
 - Automatic SSL certificate provisioning and renewal
 - Dynamic routing based on hostnames and paths
 - Integration with authentication services
 - Load balancing and traffic distribution
 - Middleware support for additional functionality
+- Web UI for visualizing entrypoints and routes
 
-## Traefik Configuration
+## Configuration
 
 Traefik in NewPush Labs is preconfigured to work seamlessly with other components. However, you can customize its behavior by modifying the Traefik configuration files.
 
@@ -35,7 +39,7 @@ By default, Traefik logs are ingested into Loki.
 For detailed information on Traefik configuration, refer to the [official Traefik documentation](https://doc.traefik.io/traefik/).
 
 
-## Expose Services Trough Traefik
+## Expose Services
 
 To expose a new service through Traefik, you typically need to:
 
@@ -73,3 +77,13 @@ services:
 ```
 
 This middleware ensures that users are authenticated through Casdoor.
+
+After successful configuration, the service will be displayed on the dashboard:
+
+![Treaefik Service Example](../components/images/traefik-service.png)
+
+## Monitoring
+
+NewPush Labs offers a preconfigured monitoring solution with Grafana, featuring dashboards for system and application metrics, including Traefik-specific metrics. Grafana integrates with Loki to view and analyze Traefik logs, providing a unified interface for monitoring metrics and logs, making it easier to troubleshoot issues.
+
+![Traefik in Grafana](../components/images/grafana_traefik.png)

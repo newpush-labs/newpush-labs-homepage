@@ -1,3 +1,8 @@
+---
+title: Infrastructure as Code
+order: 9
+---
+
 # Infrastructure as Code with Ansible
 
 NewPush Labs uses Ansible for infrastructure as code (IaC), ensuring consistency, reproducibility, and scalability in lab environments.

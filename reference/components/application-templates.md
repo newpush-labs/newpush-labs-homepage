@@ -1,3 +1,7 @@
+---
+title: Application Templates
+order: 4
+---
 # Application Templates with Portainer
 
 NewPush Labs utilizes Portainer to provide pre-configured application templates, enabling quick deployment and management of containerized applications.

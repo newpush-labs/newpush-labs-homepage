@@ -1,3 +1,7 @@
+---
+title:  Web-Based Terminal
+order: 7
+---
 # Web-Based Terminal
 
 NewPush Labs provides a secure web-based terminal for SSH access to your lab environment.
@@ -5,7 +9,7 @@ NewPush Labs provides a secure web-based terminal for SSH access to your lab env
 ## Features
 
 - Browser-based SSH access
-- Integration with SSO for secure authentication
+- Integration with Casdoor for secure authentication
 - Support for multiple concurrent sessions
 - Customizable terminal settings
 

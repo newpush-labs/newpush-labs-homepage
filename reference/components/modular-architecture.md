@@ -1,4 +1,9 @@
-# Modular and Extensible Architecture
+---
+title: Lab Stacks
+order: 5
+---
+
+# Lab Stacks - Modular and Extensible Architecture
 
 NewPush Labs is designed with a modular and extensible architecture, allowing for easy customization and expansion of the lab environment.
 
