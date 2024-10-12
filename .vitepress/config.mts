@@ -1,8 +1,9 @@
 import { defineConfig } from 'vitepress'
 import { generateSidebar } from 'vitepress-sidebar';
+import { withMermaid } from "vitepress-plugin-mermaid";
 
 // https://vitepress.dev/reference/site-config
-export default defineConfig({
+export default withMermaid({
   title: "NewPush Labs",
   description: "Experience the trending tech stacks with ease",
   base: '/',
@@ -28,7 +29,9 @@ export default defineConfig({
         base: '/',
       }
     },
-
+    outline: {
+      level: [2, 6]
+    },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/newpush-labs/newpush-labs' },
       { icon: 'linkedin', link: 'https://www.linkedin.com/company/newpush/' },
@@ -42,6 +45,7 @@ export default defineConfig({
       pattern: 'https://github.com/newpush-labs/newpush-labs-homepage/edit/main/:path',
       text: 'Edit this page on GitHub'
     }, 
+
     sidebar: generateSidebar([
       {
         documentRootPath: '.',
@@ -53,7 +57,8 @@ export default defineConfig({
         capitalizeFirst: true,
         useFolderTitleFromIndexFile: true,
         excludeFiles: ['do-not-include.md'],
-        sortMenusByFrontmatterOrder: true
+        sortMenusByFrontmatterOrder: true,
+        useTitleFromFrontmatter: true
       },
       {
         documentRootPath: '.',
@@ -64,7 +69,8 @@ export default defineConfig({
         useTitleFromFileHeading: true,
         underscoreToSpace: true,
         capitalizeFirst: true,
-        sortMenusByFrontmatterOrder: true
+        sortMenusByFrontmatterOrder: true,
+        useTitleFromFrontmatter: true
 
       }
     ]),
