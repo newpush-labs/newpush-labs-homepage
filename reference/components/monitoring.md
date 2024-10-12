@@ -63,8 +63,6 @@ GF_AUTH_GENERIC_OAUTH_AUTO_LOGIN=true
 
 The core configuration of Grafana in NewPush Labs is managed via Docker labels. This ensures that essential settings, such as data sources and dashboards, are automatically applied during deployment. You are also able to configure additional settings via the web UI for those settings which are not defined via Docker labels.
 
-### Adding Data Sources and Dashboards
-
 Grafana allows you to add data sources and dashboards via the UI by default. This provides flexibility in configuring your monitoring setup without needing to modify configuration files directly.
 
 ## Loki
@@ -84,7 +82,6 @@ Loki is a log aggregation system that integrates with Grafana for efficient log 
 Loki is seamlessly integrated with Grafana, enabling you to query and visualize logs directly within the Grafana interface. Ensure you select the correct data source when exploring your data.
 
 ![alt text](../components/images/grafana_loki.png)
-
 
 
 ### Configuration
@@ -139,10 +136,24 @@ limits_config:
   max_query_parallelism: 32
 ```
 
-### Ingesting logs
+## Promtail
+
+Promtail is an agent that ships the contents of local logs to a private Grafana Loki instance or Grafana Cloud. It is usually deployed to every machine that has applications needed to be monitored.
+
+### Features
+
+- Lightweight log collector
+- Supports various log formats
+- Integrates seamlessly with Loki
+- Can be configured to scrape logs from multiple sources
+
+### Configuration
+
+Promtail can be configured using a YAML file. The configuration file defines how Promtail will scrape logs from the system and send them to Loki. 
 
 To ingest additional log sources into Loki, you need to edit the Promtail configuration file. Below is an example of how to add a new log source to Promtail.
 
+Please refer to [Promtail's documentation](https://grafana.com/docs/loki/latest/send-data/promtail/configuration/#example-static-config) for more details.
 
 You can find the configuration of Promtail in ```$LAB_HOME/services/promtail/config.yaml```:
 
@@ -175,4 +186,76 @@ scrape_configs:
           __path__: /var/log/traefik/*log  // [!code ++]
 ```
 
-Please refer to [Promtail's documentation](https://grafana.com/docs/loki/latest/send-data/promtail/configuration/#example-static-config) for more details.
+
+
+::: tip
+
+Don't forget to restart Promtail after altering the log file with the following command:
+
+```bash
+docker restart promtail
+```
+
+:::
+
+## Prometheus
+
+Prometheus is an open-source systems monitoring and alerting toolkit. It is designed for reliability and scalability, making it suitable for both small and large-scale deployments. Prometheus collects and stores metrics as time series data, providing powerful querying capabilities.
+
+### Features
+
+- Multi-dimensional data model with time series data identified by metric name and key/value pairs
+- Flexible query language (PromQL) to leverage this dimensionality
+- No reliance on distributed storage; single server nodes are autonomous
+- Time-based data retention and efficient storage
+- Built-in support for service discovery or static configuration for monitoring targets
+- Alerting based on the collected metrics
+
+### Accessing Prometheus
+
+Prometheus can be accessed at `http://prometheus.DOMAIN`. By default, it is protected by Traefik's forward-auth middleware to prevent exposure to the internet accidentally. Additionally, it is configured to use SSO by default. Click on "Sign in with NewPush lab" to log in.
+
+### Configuration
+
+Prometheus is configured using a YAML file. The configuration file defines how Prometheus will scrape metrics from the system and other services. Below is an example of a basic Prometheus configuration file.
+
+You can find the configuration of Prometheus in ```$LAB_HOME/services/prometheus/prometheus.yaml```:
+
+```yaml
+
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  - job_name: 'node_exporter'
+    static_configs:
+      - targets: ['node-exporter:9100']
+
+  - job_name: 'loki'
+    static_configs:
+      - targets: ['loki:3100']
+
+  - job_name: 'cadvisor'
+    static_configs:
+      - targets: ['cadvisor:8080']
+
+  - job_name: 'traefik'
+    static_configs:
+      - targets: ['traefik:8080']
+```
+
+
+::: tip
+
+Don't forget to restart Prometheus after altering the log file with the following command:
+
+```bash
+docker restart prometheus
+```
+
+:::
