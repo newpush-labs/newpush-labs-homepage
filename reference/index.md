@@ -8,5 +8,5 @@ This section provides detailed reference documentation for NewPush Labs technolo
 - [Application Templates with Portainer](./components/application-templates.md)
 - [Web UI](./components/web-ui.md)
 - [Web-Based Terminal](./components/web-terminal.md)
-- [Modular and Extensible Architecture](./components/modular-architecture.md)
+- [Lab Stacks](./components/lab-stacks.md)
 - [Infrastructure as Code with Ansible](./components/infrastructure-as-code.md)

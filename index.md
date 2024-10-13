@@ -65,7 +65,7 @@ features:
     details: Customize and extend the lab environment to suit your specific needs.
     icon:
       src: /images/apps/dockge.svg
-    link: /reference/components/modular-architecture.html
+    link: /reference/components/lab-stacks.html
     linkText: Extend your lab with stacks
 
   - title: Under the Hood

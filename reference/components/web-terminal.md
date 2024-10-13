@@ -2,9 +2,10 @@
 title:  Web-Based Terminal
 order: 7
 ---
-# Web-Based Terminal
+# Web-Based Terminal with Sshwifty
 
 NewPush Labs provides a secure web-based terminal for SSH access to your lab environment.
+![sshwift](./images/sshwifty.png)
 
 ## Features
 
@@ -15,34 +16,26 @@ NewPush Labs provides a secure web-based terminal for SSH access to your lab env
 
 ## Accessing the Web Terminal
 
-The web-based terminal is typically accessible at `https://terminal.yourdomain.com`. Use your SSO credentials to log in.
+The web-based terminal is accessible at `https://sshwifty.DOMAIN`. Use your SSO credentials to log in.
 
 ## Usage
 
+By default, the web terminal is preconfigured to connect to the core services of the lab environment. This ensures that you have immediate access to essential services without additional setup. 
+
 1. Log in to the web terminal interface
 2. Select the server you want to connect to
-3. You will be automatically authenticated using your SSO credentials
-4. Use the terminal as you would a regular SSH session
+3. Use the terminal as you would a regular SSH session
 
-## Customization
+## Configuration
 
-You can customize various aspects of the terminal, including:
+The config file for sshwifty located at `$LAB_HOME/services/sshwifty/sshwift.conf.json` 
 
-- Color scheme
-- Font size and family
-- Keyboard shortcuts
+::: tip
 
-Access these settings through the terminal interface's configuration menu.
+Don't forget to restart sshwifty after altering the log file with the following command:
 
-## Security Considerations
+```bash
+docker restart sshwifty
+```
 
-- All terminal sessions are encrypted
-- Sessions automatically time out after a period of inactivity
-- Access can be restricted based on user roles and permissions
-
-## Best Practices
-
-- Always close your terminal sessions when you're done
-- Use caution when running privileged commands
-- Avoid leaving terminal sessions unattended
-- Regularly update your SSH keys
+:::

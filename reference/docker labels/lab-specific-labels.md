@@ -51,6 +51,18 @@ These labels are parsed by [mafl-service-discovery](https://github.com/newpush-l
 
 Watchtower is a process for automating Docker container base image updates. By using Watchtower labels, you can control how Watchtower monitors and updates your Docker containers. These labels allow you to enable or disable Watchtower for specific containers and configure update intervals.
 
+## Dozzle Labels
+
+Dozzle is a real-time log viewer for Docker containers. By using Dozzle labels, you can organize and group logs from different containers, making it easier to monitor and debug your applications. These labels allow you to specify the group and name of the logs, which can be useful for filtering and searching within the Dozzle interface.
+
+
+## Example Dozzle Labels
+```docker
+labels:
+    dev.dozzle.group=myapp
+    dev.dozzle.name
+```
+
 ### Example Watchtower Labels
 
 ```docker
