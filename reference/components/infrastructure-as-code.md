@@ -21,22 +21,15 @@ NewPush Labs uses Ansible for infrastructure as code (IaC), ensuring consistency
 
 ### Structure
 
-The Ansible configuration in NewPush Labs typically follows this structure:
+The Ansible configuration in NewPush Labs typically this structure:
 
 ```
 ansible/
-├── inventories/
-│   ├── production/
-│   └── staging/
-├── playbooks/
-│   ├── site.yml
-│   ├── webservers.yml
-│   └── databases.yml
+├── inventory/
+├── group_vars/
 ├── roles/
-│   ├── common/
-│   ├── webserver/
-│   └── database/
-└── ansible.cfg
+├── playbooks/
+│   ├── lab.yaml
 ```
 
 ### Running Playbooks
@@ -44,25 +37,10 @@ ansible/
 To apply configuration changes:
 
 ```bash
-ansible-playbook -i inventories/production site.yml
+ansible-playbook -i inventory/lab.yml -p provisioning/ansible/lab.yaml
 ```
+## Makefile
 
-## Customization
+The Makefile in the project directory defines a couple of macros for easier use. Refer to the `Makefile` for the list
+of up to date macros. 
 
-You can customize the Ansible configuration by:
-
-1. Modifying existing playbooks and roles
-2. Creating new roles for specific applications or services
-3. Adjusting variables to change behavior across environments
-
-## Best Practices
-
-- Use version control (e.g., Git) for your Ansible code
-- Test changes in a staging environment before applying to production
-- Use Ansible Vault for sensitive information
-- Keep playbooks idempotent (safe to run multiple times)
-- Regularly update Ansible and its dependencies
-
-## Further Reading
-
-For more detailed information on using Ansible, refer to the [official Ansible documentation](https://docs.ansible.com/).

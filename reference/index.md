@@ -9,4 +9,3 @@ This section provides detailed reference documentation for NewPush Labs technolo
 - [Web UI](./components/web-ui.md)
 - [Web-Based Terminal](./components/web-terminal.md)
 - [Lab Stacks](./components/lab-stacks.md)
-- [Infrastructure as Code with Ansible](./components/infrastructure-as-code.md)
