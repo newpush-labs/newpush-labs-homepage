@@ -14,9 +14,11 @@ hero:
       text: Get Started
       link: /guides/get-started
     - theme: alt
+      text: View Our Pitch Deck
+      link: https://newpush-labs.github.io/newpush-labs-pitchdeck/1
+    - theme: alt
       text: Learn More
       link: /learn-more
-
 
 features:
   - title: Single Sign-On (SSO)
