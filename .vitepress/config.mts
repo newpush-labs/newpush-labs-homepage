@@ -23,6 +23,7 @@ export default withMermaid({
       { text: 'Home', link: '/' },
       { text: 'Guides', link: '/guides/' },
       { text: 'Reference', link: '/reference/' },
+      { text: 'Applications', link: '/applications/' },
     ],
     public: {
       site: {
@@ -36,7 +37,9 @@ export default withMermaid({
       { icon: 'github', link: 'https://github.com/newpush-labs/newpush-labs' },
       { icon: 'linkedin', link: 'https://www.linkedin.com/company/newpush/' },
     ],
-
+    search: {
+      provider: 'local' 
+    },
     footer: {
       message: 'Licensed under the MIT License. Free for all use cases. For enterprise or academic support, please reach out to us.',
       copyright: 'Copyright © 2024 - newpush labs - All rights reserved.'
@@ -64,6 +67,19 @@ export default withMermaid({
         documentRootPath: '.',
         scanStartPath: 'reference',
         resolvePath: '/reference/',
+        // useTitleFromFrontmatter: true,
+        useFolderTitleFromIndexFile: true,
+        useTitleFromFileHeading: true,
+        underscoreToSpace: true,
+        capitalizeFirst: true,
+        sortMenusByFrontmatterOrder: true,
+        useTitleFromFrontmatter: true
+
+      },
+      {
+        documentRootPath: '.',
+        scanStartPath: 'applications',
+        resolvePath: '/applications/',
         // useTitleFromFrontmatter: true,
         useFolderTitleFromIndexFile: true,
         useTitleFromFileHeading: true,
