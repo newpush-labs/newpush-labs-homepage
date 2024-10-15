@@ -32,3 +32,6 @@ dist/
 # Vitepress
 .vitepress/dist/
 .vitepress/cache/
+
+# Helper scripts
+copy-applications.sh
