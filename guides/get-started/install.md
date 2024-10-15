@@ -1,14 +1,20 @@
-# Install the labs
+---
+title: Installation
+order: 3
+---
 
-Follow these steps to install and set up NewPush Labs on your local machine:
+# Installation
 
-## Prerequisites
+Follow these steps to install and set up NewPush Labs on your virtual machine.
 
-Before you begin, ensure you have a linux virtual machine in no production. The lab is in current development can break things, don't use it on your production environment. The lab is being developed on debian. 
+:::warning
+A dedicated Debian-based virtual machine is required for the lab.
+:::
 
-- [Debian](https://www.debian.org/) 
-- [Ansible](https://www.ansible.com/)
 
+:::tip
+You can use your local machine to run the Ansible roles for remote targets, or you can execute the Ansible scripts directly on the remote machine.
+:::
 ## Steps
 
 1. **Clone the Repository**
@@ -32,8 +38,8 @@ Before you begin, ensure you have a linux virtual machine in no production. The 
    Install the required dependencies using npm:
 
    ```sh
-   pip3 install -r requirements.txt
-   ansible-galaxy install -r requirements.yml
+   pip3 install -r provisioning/ansible/requirements.txt
+   ansible-galaxy install -r provisioning/ansible/requirements.yml
    ```
 
 4. **Copy and Edit Configuration File**
@@ -52,9 +58,6 @@ Before you begin, ensure you have a linux virtual machine in no production. The 
    Install to local machine the lab:
 
    ```sh
-   ansible-playbook -i ./provisioning/ansible/inventory/hosts.local ./provisioning/ansible/lab-install-local.yml
+   make setup HOSTS_FILE=./provisioning/ansible/inventory/hosts       
    ```
-
-6. **Test the Lab**
-
-   Once the installation is complete, the lab URL will be shown in the terminal. Open your web browser and navigate to the provided URL to verify that the lab is up and running.
+ 
