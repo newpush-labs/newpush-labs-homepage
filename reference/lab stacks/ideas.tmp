@@ -1,0 +1,80 @@
+
+
+## Researching Privacy and Anonymity during an attack
+
+```mermaid
+graph LR
+
+subgraph "Privacy and Anonymity Cyber Lab"
+
+    subgraph "Attacker Environment"
+        A[Attacker Container kalilinux/kali-rolling]
+        B[Browser Container jlesage/firefox]
+        A --> B
+    end
+
+    subgraph "Privacy Tools"
+        P[Privoxy Container privoxy/privoxy]
+        T[Tor Container torproject/tor]
+        V[OpenVPN Container kylemanna/openvpn]
+        B -->|HTTP Proxy| P
+        P -->|SOCKS Proxy| T
+        B -->|VPN Connection| V
+    end
+
+    subgraph "Target Environment"
+        Target[Target Container vulnerable_app_image]
+        Internet --> Target
+    end
+
+    subgraph "Monitoring Tools"
+        W[Wireshark Container wireshark/wireshark]
+        W -- monitors --> A
+        W -- monitors --> P
+        W -- monitors --> T
+        W -- monitors --> V
+        W -- monitors --> Target
+    end
+
+    T -->|Encrypted Traffic| Internet
+    V -->|Encrypted Traffic| Internet
+
+end
+graph LR
+
+subgraph "Privacy and Anonymity Cyber Lab"
+
+    subgraph "Attacker Environment"
+        A[Attacker Container kalilinux/kali-rolling]
+        B[Browser Container jlesage/firefox]
+        A --> B
+    end
+
+    subgraph "Privacy Tools"
+        P[Privoxy Container privoxy/privoxy]
+        T[Tor Container torproject/tor]
+        V[OpenVPN Container kylemanna/openvpn]
+        B -->|HTTP Proxy| P
+        P -->|SOCKS Proxy| T
+        B -->|VPN Connection| V
+    end
+
+    subgraph "Target Environment"
+        Target[Target Container vulnerable_app_image]
+        Internet --> Target
+    end
+
+    subgraph "Monitoring Tools"
+        W[Wireshark Container wireshark/wireshark]
+        W -- monitors --> A
+        W -- monitors --> P
+        W -- monitors --> T
+        W -- monitors --> V
+        W -- monitors --> Target
+    end
+
+    T -->|Encrypted Traffic| Internet
+    V -->|Encrypted Traffic| Internet
+
+end
+```
