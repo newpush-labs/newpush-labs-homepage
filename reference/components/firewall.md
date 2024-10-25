@@ -1,13 +1,19 @@
 ---
-title:  Firewall
+title:  Firewall & IPS
 order: 9
 ---
 # Firewall with CrowdSec
 
 NewPush Labs offers a pre-configured [CrowdSec](https://www.crowdsec.net/) deployment right out of the box with [Uncomplicated Firewall](https://help.ubuntu.com/community/UFW) (UFW), which includes both a Traefik bouncer and a firewall bouncer for comprehensive security protection.
 
+:::info
+By default, all incoming traffic is denied except for HTTP (port 80), HTTPS (port 443), and OpenSSH (port 22). This configuration provides a secure baseline, allowing only essential services while blocking potential threats from unauthorized access attempts on other ports.
+
+:::
 
 ## Architecture
+The architecture diagram illustrates how CrowdSec integrates with system logs, application logs, and firewall logs to parse and analyze potential threats, making decisions that are then applied through bouncers to protect against malicious traffic via UFW and Traefik.
+
 
 ```mermaid
 
