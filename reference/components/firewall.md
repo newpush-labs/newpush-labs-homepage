@@ -4,7 +4,8 @@ order: 9
 ---
 # Firewall with CrowdSec
 
-NewPush Labs offers a pre-configured Crowdsec deployment right out of the box with Uncomplicated Firewall (UFW), which includes both a Traefik bouncer and a firewall bouncer for comprehensive security protection.
+NewPush Labs offers a pre-configured [CrowdSec](https://www.crowdsec.net/) deployment right out of the box with [Uncomplicated Firewall](https://help.ubuntu.com/community/UFW) (UFW), which includes both a Traefik bouncer and a firewall bouncer for comprehensive security protection.
+
 
 ## Architecture
 
@@ -61,6 +62,7 @@ graph TD
     
 ```
 
+
 ## Features
 
 NewPush Labs prioritizes security by implementing a robust firewall solution that combines the simplicity of Uncomplicated Firewall (UFW) with the advanced threat detection capabilities of CrowdSec. It comes with Grafana dashboards.
@@ -85,6 +87,18 @@ UFW provides a user-friendly interface for managing iptables, ensuring basic net
   - Customizable scenarios and rules for threat detection
   - Integration with various services (e.g., Traefik, Firewall)
   - API-based architecture for easy integration and extensibility
+
+
+:::tip
+
+Consider exploring the deployment configuration to enable CAPTCHA functionality within Traefik. 
+
+```yaml
+traefik_crowdsec_bouncer: true
+hcaptcha_site_key: 
+```
+
+:::
 
 ## Usage
 
@@ -166,6 +180,11 @@ docker exec -it crowdsec cscli decisions delete --ip <ip_address>
 5. Update CrowdSec
 ```bash
 docker exec -it crowdsec cscli hub update
+```
+
+6. Metrics 
+```bash
+docker exec -it crowdsec cscli metrics
 ```
 
 :::tip
