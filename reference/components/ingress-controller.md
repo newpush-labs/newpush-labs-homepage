@@ -87,3 +87,15 @@ After successful configuration, the service will be displayed on the dashboard:
 NewPush Labs offers a preconfigured monitoring solution with Grafana, featuring dashboards for system and application metrics, including Traefik-specific metrics. Grafana integrates with Loki to view and analyze Traefik logs, providing a unified interface for monitoring metrics and logs, making it easier to troubleshoot issues.
 
 ![Traefik in Grafana](../components/images/grafana_traefik.png)
+
+## Plugins
+
+Traefik in NewPush Labs comes with several essential middlewares that enhance security and functionality:
+| Middleware | Purpose |
+|------------|---------|
+| Forward Auth | Provides authentication via Casdoor before allowing access to protected services |
+| Sablier | Manages on-demand container lifecycle, starting containers when accessed and stopping them after inactivity |
+| CrowdSec Bouncer | Protects services from malicious traffic by blocking requests from IPs identified as threats |
+| Weab | Provides web server capabilities as a middleware, allowing serving static files and basic HTTP functionality |
+
+These middlewares can be combined to create robust security and resource management. For example, our VS Code implementation uses both Forward Auth for authentication and Sablier for resource management, ensuring secure access while optimizing resource usage.
