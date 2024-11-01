@@ -1,9 +1,9 @@
 ---
 order: 1
-title: Ondemand Containers with Sablier
+title: Start and Stop Containers On-Demand with Sablier
 ---
 
-# Sablier
+# Start and Stop Containers On-Demand with Sablier
 
 [Sablier](https://github.com/sablierapp/sablier) is a tool that helps you automatically manage your Docker containers by starting them on demand and shutting them down when they're inactive. This is particularly useful for applications that are used infrequently, such as those accessed only once a week, helping you conserve resources and prevent unnecessary load on your lab environment.
 
@@ -35,14 +35,10 @@ graph TD
     end
 
     %% Additional notes
-    classDef note fill:#f9f,stroke:#333,stroke-width:2px;
+    classDef note fill:#333,stroke:#333,stroke-width:2px;
     note1("Sablier uses Docker labels for container lifecycle management but relies on a static file configuration due to Traefik's removal of stopped container info."):::note
     C --- note1
 ```
-
-
-
-
 
 ## Configuration
 
@@ -123,20 +119,51 @@ http:
 For Traefik dynamic configuration changes, you do not need to restart the Traefik Docker container. Traefik automatically detects and applies configuration changes on-the-fly through its dynamic configuration providers. The changes will take effect immediately after saving the configuration file.
 :::
 
-## Usage
+## Using your Sablier-enabled application
 
-To use Sablier with your application:
+Simply visit the application URL (in this case `https://$LAB_DOMAIN/labs/code-server`)
 
-1. Simply visit the application URL (in this case `https://$LAB_DOMAIN/labs/code-server`)
-2. Sablier will display a welcome screen while it starts up the container
-3. Once the container is ready, you'll be automatically redirected to your application
-4. The container will remain running for the configured session duration (5 minutes in this example)
-5. After the session expires, the container will be stopped until the next access
+   1. Sablier will display a welcome screen while it starts up the container
+   2. Once the container is ready, you'll be automatically redirected to your application
+   3. The container will remain running for the configured session duration (5 minutes in this example)
+   4. After the session expires, the container will be stopped until the next access
+
+## Container Lifecycle Management
+
+```mermaid
+sequenceDiagram
+    actor User
+    participant Traefik
+    participant Sablier
+    participant Docker
+
+    User ->> Traefik: Access Application
+    Traefik ->> Sablier: Forward Request
+    Sablier ->> Docker: Check Container Status
+    alt Container is Stopped
+        Sablier ->> Docker: Start Container
+    end
+    Docker ->> Traefik: Container Running
+    Traefik ->> User: Route to Application
+
+    loop Active Session
+        User ->> Traefik: Interact with Application
+        Traefik ->> Docker: Keep Running
+    end
+
+    Note over Sablier, Docker: Idle Timeout Reached
+    Sablier ->> Docker: Stop Container
+
+    Note over User, Docker: No manual intervention required for lifecycle management
+
+```
 
 The container is automatically managed by Sablier:
-- Started on-demand when accessed
-- Kept running during active sessions
-- Stopped after the configured idle timeout
-- No manual intervention required
+   - Started on-demand when accessed
+   - Kept running during active sessions  
+   - Stopped after the configured idle timeout
+   - No manual intervention required
 
-This provides efficient resource usage by only running containers when they're actually being used.
+:::tip
+Sablier provides efficient resource usage by only running containers when they're actually being used.
+:::
