@@ -35,11 +35,11 @@ You can use your local machine to run the Ansible roles for remote targets, or y
 
 3. **Install Dependencies**
 
-   Install the required dependencies using npm:
+   Install the required dependencies using pip and ansible:
 
    ```sh
    pip3 install -r provisioning/ansible/requirements.txt
-   ansible-galaxy install -r provisioning/ansible/requirements.yml
+   ansible-galaxy install -r provisioning/ansible/requirements.yaml
    ```
 
 4. **Copy and Edit Configuration File**
