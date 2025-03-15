@@ -24,8 +24,10 @@ This guide will walk you through the process of enabling Single Sign-On (SSO) in
       - Name: Portainer
       - Client ID: Generate a unique ID or use the one provided
       - Client Secret: Generate a secret or use the one provided
-      - Redirect URL: `https://your-portainer-url/oauth/oidc/callback`
-      - Sign-in URL: `https://your-portainer-url/#/auth`
+      - Redirect URL: `https://your-portainer-url`
+      - Disable: `Enable signup`
+      - Enable: `Signin session`
+      - Enable: `Auto signin`
    e. Save the application.
 
 2. **Configure Portainer**
@@ -38,14 +40,14 @@ This guide will walk you through the process of enabling Single Sign-On (SSO) in
    d. Enable OAuth authentication.
    e. Select "Custom" as the OAuth provider.
    f. Fill in the following details:
-      - Authentication URL: `https://your-casdoor-url/login/oauth/authorize`
-      - Access Token URL: `https://your-casdoor-url/api/login/oauth/access_token`
-      - Resource URL: `https://your-casdoor-url/api/userinfo`
       - Client ID: Use the Client ID from Casdoor
       - Client Secret: Use the Client Secret from Casdoor
-      - Scopes: `openid profile email`
+      - Authorization URL: `https://your-casdoor-url/login/oauth/authorize`
+      - Access Token URL: `https://your-casdoor-url/api/login/oauth/access_token`
+      - Resource URL: `https://your-casdoor-url/api/userinfo`
+      - Redirect URL: `https://your-portainer-url`
       - User Identifier: `preferred_username`
-      - Redirect URL: `https://your-portainer-url/oauth/oidc/callback`
+      - Scopes: `openid profile email`
    g. Click "Save Settings".
 
 3. **Map Casdoor Roles to Portainer Teams (Optional)**
@@ -53,7 +55,7 @@ This guide will walk you through the process of enabling Single Sign-On (SSO) in
    If you want to map Casdoor roles to Portainer teams:
 
    a. In Portainer, go to "Settings" > "Authentication".
-   b. Scroll down to the "Team Membership" section.
+   b. Scroll down to the "Team Membership" section. (Requires Business edition)
    c. Enable "Automatically sync team memberships".
    d. Add mappings between Casdoor roles and Portainer teams.
 
